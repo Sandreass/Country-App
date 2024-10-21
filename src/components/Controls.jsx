@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search } from "./Search";
+import Search from "./Search";
 
 const Controls = () => {
   const [search, setSearch] = useState("");
