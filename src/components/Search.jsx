@@ -15,6 +15,7 @@ const InputContainer = styled.label`
   @media (min-width: 767px) {
     margin-bottom: 0;
     width: 280px;
+    
   }
 `;
 
@@ -26,6 +27,7 @@ const Input = styled.input.attrs({
   border: none;
   outline: none;
   color: var(--color-text);
+  background-color: var(--colors-ui-base);
   
 `;
 
