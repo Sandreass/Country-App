@@ -6,7 +6,13 @@ const InfoImage = styled.img``;
 
 const InfoTitle = styled.h1``;
 
-export const Info = (props) => {
+const ListGroup = styled.div``;
+
+const List = styled.ul``;
+
+const ListItem = styled.li``;
+
+const Info = (props) => {
   const {
     name,
     nativeName,
@@ -26,7 +32,48 @@ export const Info = (props) => {
       <InfoImage src={flag} alt={name} />
       <div>
         <InfoTitle>{name}</InfoTitle>
+        <ListGroup>
+          <List>
+            <ListItem>
+              <b>Native</b> {nativeName}
+            </ListItem>
+            <ListItem>
+              <b>Population</b> {population}
+            </ListItem>
+            <ListItem>
+              <b>Region</b> {region}
+            </ListItem>
+            <ListItem>
+              <b>Sub Region</b> {subregion}
+            </ListItem>
+            <ListItem>
+              <b>Capital</b> {capital}
+            </ListItem>
+          </List>
+          <List>
+            <ListItem>
+              <b>Top Level Domain</b>{" "}
+              {topLevelDomain.map((d) => (
+                <span key={d}>{d}</span>
+              ))}
+            </ListItem>
+            <ListItem>
+              <b>Currency</b>{" "}
+              {currencies.map((c) => (
+                <span key={c.code}>{c.name} </span>
+              ))}
+            </ListItem>
+            <ListItem>
+              <b>Top Level Domain</b>{" "}
+              {languages.map((l) => (
+                <span key={l.name}>{l.name}</span>
+              ))}
+            </ListItem>
+          </List>
+        </ListGroup>
       </div>
     </Wrapper>
   );
 };
+
+export default Info;
