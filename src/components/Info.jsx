@@ -29,11 +29,31 @@ const InfoTitle = styled.h1`
   font-weight: var(--fw-normal);
 `;
 
-const ListGroup = styled.div``;
+const ListGroup = styled.div`
+  display: flex;
+  flex-direction: column;
 
-const List = styled.ul``;
+  gap: 2rem;
 
-const ListItem = styled.li``;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 4rem;
+  }
+`;
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const ListItem = styled.li`
+  line-height: 1.8;
+
+  & > b {
+    font-weight: var(--fw-bold);
+  }
+`;
 
 const Info = (props) => {
   const {
