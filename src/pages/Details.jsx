@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import { searchByCountry } from "../config";
 import Button from "../components/Button";
+import Info from "../components/Info";
 
 const Details = () => {
   const { name } = useParams();
-  const { navigate, goBack} = useNavigate();
+  const navigate = useNavigate(); 
   const [country, setCountry] = useState(null);
 
   useEffect(() => {
@@ -17,10 +17,10 @@ const Details = () => {
 
   return (
     <div>
-      <Button onClick={goBack}>
+      <Button onClick={() => navigate(-1)}>
         <IoArrowBack size="20px" /> Back
       </Button>
-      Details {name}
+      {country && <Info {...country} />} {}
     </div>
   );
 };
