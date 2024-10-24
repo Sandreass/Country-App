@@ -54,6 +54,12 @@ const ListItem = styled.li`
     font-weight: var(--fw-bold);
   }
 `;
+const Meta = styled.div``;
+
+const TagGroup = styled.div``;
+
+const Tag = styled.span``;
+
 
 const Info = (props) => {
   const {
@@ -68,6 +74,7 @@ const Info = (props) => {
     currencies = [],
     languages = [],
     borders = [],
+    navigate,
   } = props;
 
   return (
@@ -114,6 +121,20 @@ const Info = (props) => {
             </ListItem>
           </List>
         </ListGroup>
+        <Meta>
+          <b>Border Countries</b>
+          {!borders.length ? (
+            <span>There are no border countries</span>
+          ) : (
+            <TagGroup>
+              {borders.map((b) => (
+                <Tag key={b} onClick={() => navigate(`/country/${b}`)}>
+                  {b}
+                </Tag>
+              ))}
+            </TagGroup>
+          )}
+        </Meta>
       </div>
     </Wrapper>
   );
