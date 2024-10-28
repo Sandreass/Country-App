@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import Main from './components/Main';
@@ -12,28 +12,20 @@ function App() {
   const [countries, setCountries] = useState([]);
 
   return (
-    <Router basename="/country-app">  {}
-      <>
-        <Header />
-        <Main>
-          <Routes>
-            <Route 
-              path="/" 
-              element={<HomePage countries={countries} setCountries={setCountries} />} 
-            />
-            <Route 
-              path="/country/:name" 
-              element={<Details />} 
-            />
-            <Route 
-              path="*" 
-              element={<NotFound />} 
-            />
-          </Routes>
-        </Main>
-      </>
-    </Router>
+    <>
+      <Header />
+      <Main>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage countries={countries} setCountries={setCountries} />}
+          />
+          <Route path="/country/:name" element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Main>
+    </>
   );
 }
 
-export default App; 
+export default App;
